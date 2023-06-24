@@ -21,7 +21,7 @@ class Freq_Timeperiod_Converter:
         self.config_logger()
         
         # Main window config
-        master.title('Freq ⇔ Timeperiod Converter')
+        master.title('Freq ⇔ Timeperiod Converter') 
         master.resizable(False, False)
         #master.configure(background = '#d7718a')
 
@@ -44,7 +44,7 @@ class Freq_Timeperiod_Converter:
         # Header
         self.frame_header = ttk.Frame(master, relief='flat') # borderwidth=10, padding=(10,10,10,10)
         self.frame_header.pack(fill=X) # fill=X, expand=False, anchor=CENTER
-        self.frame_header.columnconfigure(index=1, weight=1,)
+        self.frame_header.columnconfigure(index=1, weight=1)
                 
         self.logo_left  = PhotoImage(file = 'images/wave_left.png' ).subsample( 4, 4) 
         self.logo_right = PhotoImage(file = 'images/wave_right.png').subsample(12,12) 
@@ -148,7 +148,7 @@ class Freq_Timeperiod_Converter:
         # Refresh result
         self.logo_refresh = PhotoImage(file = 'images/logo_refresh.gif').subsample(30,30)
         self.button_refresh = ttk.Button(self.frame_content, text = "Refresh", command=self.refresh_result, state='disabled',
-                    image=self.logo_refresh, compound=LEFT)
+                                            image=self.logo_refresh, compound=LEFT)
         self.button_refresh.grid(row=self.row_id, column=2, sticky='nsw',
                                     padx=self.padding_x, pady=self.padding_y)
 
@@ -266,3 +266,17 @@ def main():
     root.mainloop()
     
 if __name__ == "__main__": main()
+
+''' NOTES & LESSONS LEARNT '''
+'''
+1.  Configure sticky property for all widgets with 'frame' as the parent frame.
+        for child in frame.winfo_children():
+            child.grid_configure(sticky="nsew")
+
+2.  The grid_rowconfigure('all', weight=1) syntax is not supported in Tkinter. The 'all' argument can ONLY be used with grid_columnconfigure.
+    The desired result can be achieved by iterating over all the child widgets of the frame, and configure the weights individually.
+        for i in range(frame.grid_size()[1]):
+            frame.grid_rowconfigure(i, weight=1)
+
+
+'''
