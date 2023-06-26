@@ -10,10 +10,10 @@ class Freq_Timeperiod_Converter:
     def config_logger(self):
         # Basic logger config       
         logging.basicConfig(filename="", 
-                            format="%(levelname)-5s: %(filename)s(Func:%(funcName)-32s, Line:%(lineno)-3d): %(message)s")
+                            format="%(levelname)-5s: %(filename)s(Func:%(funcName)-30s, Line:%(lineno)-3d): %(message)s")
         
         self.logger = logging.getLogger()  # Creating an object
-        self.logger.setLevel(logging.INFO) # Setting the threshold of logger to DEBUG
+        self.logger.setLevel(logging.INFO) # Setting the threshold of logger
         logging.StreamHandler(sys.stdout)  # Print logging to console output as well
 
     def __init__(self, master):
