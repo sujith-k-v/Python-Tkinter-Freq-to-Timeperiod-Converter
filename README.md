@@ -24,3 +24,6 @@ This Python application is a versatile tool built using the Tkinter library for 
 ## License
 - This project is licensed under the MIT License.
 
+## Demo
+https://github.com/sujith-k-v/Python-Tkinter-Freq-to-Timeperiod-Converter/assets/8537831/75f57ba8-191a-45ac-b577-452efd71a573
+
